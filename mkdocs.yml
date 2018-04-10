@@ -24,6 +24,7 @@ markdown_extensions:
 pages:
   - Home: index.md
   - Database:
+    - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):
       - adventure_details: database/adventure_details.md
       - adventure_members: database/adventure_members.md
