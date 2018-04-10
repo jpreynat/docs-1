@@ -1,0 +1,280 @@
+# Project information
+site_name: EQEmulator
+site_- Description: 'A long standing passionate EverQuest Emulator project started in 2001'
+site_url: 'https://github.com/EQEmu/Server/'
+
+# Repository
+repo_name: 'EQEmu/Server'
+repo_url: 'https://github.com/EQEmu/Server'
+edit_uri: ""
+
+theme:
+  name: 'material'
+
+  feature:
+    tabs: true
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: true
+
+# Pages
+pages:
+  - Home: index.md
+  - Database:
+    - Adventures (LDONs):
+      - adventure_details: database/adventure_details.md
+      - adventure_members: database/adventure_members.md
+      - adventure_stats: database/adventure_stats.md
+      - adventure_template: database/adventure_template.md
+      - adventure_template_entry: database/adventure_template_entry.md
+      - adventure_template_entry_flavor: database/adventure_template_entry_flavor.md
+      - ldon_trap_entries: database/ldon_trap_entries.md
+      - ldon_trap_templates: database/ldon_trap_templates.md
+    - Auras: database/auras.md
+    - Alternate Currency: database/alternate_currency.md
+    - Commands: database/command_settings.md
+    - Bots:
+      - bot_buffs: database/bot_buffs.md
+      - bot_command_settings: database/bot_command_settings.md
+      - bot_data: database/bot_data.md
+      - bot_group_members: database/bot_group_members.md
+      - bot_groups: database/bot_groups.md
+      - bot_guild_members: database/bot_guild_members.md
+      - bot_heal_rotation_members: database/bot_heal_rotation_members.md
+      - bot_heal_rotation_targets: database/bot_heal_rotation_targets.md
+      - bot_heal_rotations: database/bot_heal_rotations.md
+      - bot_inspect_messages: database/bot_inspect_messages.md
+      - bot_inventories: database/bot_inventories.md
+      - bot_pet_buffs: database/bot_pet_buffs.md
+      - bot_pet_inventories: database/bot_pet_inventories.md
+      - bot_pets: database/bot_pets.md
+      - bot_spell_casting_chances: database/bot_spell_casting_chances.md
+      - bot_spells_entries: database/bot_spells_entries.md
+      - bot_stances: database/bot_stances.md
+      - bot_timers: database/bot_timers.md
+    - Character Account:
+      - banned_ips: database/banned_ips.md
+      - gm_ips: database/gm_ips.md
+      - account: database/account.md
+      - account_flags: database/account_flags.md
+      - account_ip: database/account_ip.md
+      - account_rewards: database/account_rewards.md
+      - ip_exemptions: database/ip_exemptions.md
+    - Character Creation:
+      - name_filter: database/name_filter.md
+      - start_zones: database/start_zones.md
+      - starting_items: database/starting_items.md
+      - char_create_combinations: database/char_create_combinations.md
+      - char_create_point_allocations: database/char_create_point_allocations.md
+    - Character Data:
+      - char_recipe_list: database/char_recipe_list.md
+      - character_activities: database/character_activities.md
+      - character_alt_currency: database/character_alt_currency.md
+      - character_alternate_abilities: database/character_alternate_abilities.md
+      - character_auras: database/character_auras.md
+      - character_bandolier: database/character_bandolier.md
+      - character_bind: database/character_bind.md
+      - character_buffs: database/character_buffs.md
+      - character_corpse_items: database/character_corpse_items.md
+      - character_corpses: database/character_corpses.md
+      - character_currency: database/character_currency.md
+      - character_data: database/character_data.md
+      - character_disciplines: database/character_disciplines.md
+      - character_enabledtasks: database/character_enabledtasks.md
+      - character_inspect_messages: database/character_inspect_messages.md
+      - character_item_recast: database/character_item_recast.md
+      - character_languages: database/character_languages.md
+      - character_leadership_abilities: database/character_leadership_abilities.md
+      - character_material: database/character_material.md
+      - character_memmed_spells: database/character_memmed_spells.md
+      - character_pet_buffs: database/character_pet_buffs.md
+      - character_pet_info: database/character_pet_info.md
+      - character_pet_inventory: database/character_pet_inventory.md
+      - character_potionbelt: database/character_potionbelt.md
+      - character_skills: database/character_skills.md
+      - character_spells: database/character_spells.md
+      - character_tasks: database/character_tasks.md
+      - character_tribute: database/character_tribute.md
+      - keyring: database/keyring.md
+      - inventory: database/inventory.md
+      - inventory_snapshots: database/inventory_snapshots.md
+      - faction_values: database/faction_values.md
+      - completed_tasks: database/completed_tasks.md
+      - friends: database/friends.md
+      - timers: database/timers.md
+      - player_titlesets: database/player_titlesets.md
+      - zone_flags: database/zone_flags.md
+    - Database Schema: database/db_version.md
+    - Doors: database/doors.md
+    - Faction Data:
+      - faction_list: database/faction_list.md
+      - faction_list_mod: database/faction_list_mod.md
+    - Fishing: database/fishing.md
+    - Foraging: database/forage.md
+    - Grids and Pathing:
+      - grid: database/grid.md
+      - grid_entries: database/grid_entries.md
+    - Ground Spawns: database/ground_spawns.md
+    - Groups:
+      - group_id: database/group_id.md
+      - group_leaders: database/group_leaders.md
+    - Guilds:
+      - guild_bank: database/guild_bank.md
+      - guild_members: database/guild_members.md
+      - guild_ranks: database/guild_ranks.md
+      - guild_relations: database/guild_relations.md
+      - guilds: database/guilds.md
+    - Graveyard: database/graveyard.md
+    - Horses: database/horses.md
+    - Instances:
+      - instance_list: database/instance_list.md
+      - instance_list_player: database/instance_list_player.md
+    - Items:
+      - items: database/items.md
+    - Launcher:
+      - launcher: database/launcher.md
+      - launcher_zones: database/launcher_zones.md
+    - Loot:
+      - lootdrop: database/lootdrop.md
+      - lootdrop_entries: database/lootdrop_entries.md
+      - loottable: database/loottable.md
+      - loottable_entries: database/loottable_entries.md
+    - Loginserver:
+      - loginserver_server_accounts: database/loginserver_server_accounts.md
+      - loginserver_server_admin_registration: database/loginserver_server_admin_registration.md
+      - loginserver_server_list_type: database/loginserver_server_list_type.md
+      - loginserver_world_server_registration: database/loginserver_world_server_registration.md
+    - Logging:
+      - eventlog: database/eventlog.md
+    - Logging Settings:
+      - logsys_categories: database/logsys_categories.md
+    - NPCs:
+      - npc_emotes: database/npc_emotes.md
+      - npc_faction: database/npc_faction.md
+      - npc_faction_entries: database/npc_faction_entries.md
+      - npc_spells: database/npc_spells.md
+      - npc_spells_effects: database/npc_spells_effects.md
+      - npc_spells_effects_entries: database/npc_spells_effects_entries.md
+      - npc_spells_entries: database/npc_spells_entries.md
+      - npc_types: database/npc_types.md
+      - npc_types_metadata: database/npc_types_metadata.md
+      - npc_types_tint: database/npc_types_tint.md
+    - Spawn Data:
+      - spawn2: database/spawn2.md
+      - spawn_condition_values: database/spawn_condition_values.md
+      - spawn_conditions: database/spawn_conditions.md
+      - spawn_events: database/spawn_events.md
+      - spawnentry: database/spawnentry.md
+      - spawngroup: database/spawngroup.md
+      - respawn_times: database/respawn_times.md
+    - Spells:
+      - blocked_spells: database/blocked_spells.md
+      - spell_globals: database/spell_globals.md
+      - spells_new: database/spells_new.md
+    - Server Data:
+      - level_exp_mods: database/level_exp_mods.md
+      - variables: database/variables.md
+      - hackers: database/hackers.md
+      - base_data: database/base_data.md
+      - eqtime: database/eqtime.md
+      - saylink: database/saylink.md
+      - class_skill: database/class_skill.md
+      - damageshieldtypes: database/damageshieldtypes.md
+      - db_str: database/db_str.md
+      - discovered_items: database/discovered_items.md
+      - perl_event_export_settings: database/perl_event_export_settings.md
+      - races: database/races.md
+      - skill_caps: database/skill_caps.md
+    - Task System:
+      - activities: database/activities.md
+      - goallists: database/goallists.md
+      - tasks: database/tasks.md
+      - tasksets: database/tasksets.md
+      - proximities: database/proximities.md
+    - Tradeskills:
+      - tradeskill_recipe: database/tradeskill_recipe.md
+      - tradeskill_recipe_entries: database/tradeskill_recipe_entries.md
+    - Univseral Chat System (UCS):
+      - chatchannels: database/chatchannels.md
+      - mail: database/mail.md
+    - Mercenaries:
+      - mercs: database/mercs.md
+      - merc_armorinfo: database/merc_armorinfo.md
+      - merc_buffs: database/merc_buffs.md
+      - merc_inventory: database/merc_inventory.md
+      - merc_merchant_entries: database/merc_merchant_entries.md
+      - merc_merchant_template_entries: database/merc_merchant_template_entries.md
+      - merc_merchant_templates: database/merc_merchant_templates.md
+      - merc_name_types: database/merc_name_types.md
+      - merc_npc_types: database/merc_npc_types.md
+      - merc_spell_list_entries: database/merc_spell_list_entries.md
+      - merc_spell_lists: database/merc_spell_lists.md
+      - merc_stance_entries: database/merc_stance_entries.md
+      - merc_stats: database/merc_stats.md
+      - merc_subtypes: database/merc_subtypes.md
+      - merc_templates: database/merc_templates.md
+      - merc_types: database/merc_types.md
+      - merc_weaponinfo: database/merc_weaponinfo.md
+    - Merchants:
+      - merchantlist: database/merchantlist.md
+      - merchantlist_temp: database/merchantlist_temp.md
+    - Misc:
+      - buyer: database/buyer.md
+      - veteran_reward_templates: database/veteran_reward_templates.md
+    - Objects:
+      - object: database/object.md
+      - object_contents: database/object_contents.md
+    - Petitions:
+      - petitions: database/petitions.md
+    - Pets:
+      - pets: database/pets.md
+      - pets_equipmentset: database/pets_equipmentset.md
+      - pets_equipmentset_entries: database/pets_equipmentset_entries.md
+    - Quest Globals:
+      - quest_globals: database/quest_globals.md
+    - Raids:
+      - raid_details: database/raid_details.md
+      - raid_leaders: database/raid_leaders.md
+      - raid_members: database/raid_members.md
+    - Tribute:
+      - tribute_levels: database/tribute_levels.md
+      - tributes: database/tributes.md
+    - Titles:
+      - titles: database/titles.md
+    - Traps:
+      - traps: database/traps.md
+    - Trading System (Bazaar):
+      - trader: database/trader.md
+      - trader_audit: database/trader_audit.md
+    - Reporting (/report):
+      - reports: database/reports.md
+    - Rules:
+      - rule_sets: database/rule_sets.md
+      - rule_values: database/rule_values.md
+    - Shared Bank:
+      - sharedbank: database/sharedbank.md
+    - Queryserv (Server):
+      - lfguild: database/lfguild.md
+      - qs_merchant_transaction_record: database/qs_merchant_transaction_record.md
+      - qs_merchant_transaction_record_entries: database/qs_merchant_transaction_record_entries.md
+      - qs_player_aa_rate_hourly: database/qs_player_aa_rate_hourly.md
+      - qs_player_delete_record: database/qs_player_delete_record.md
+      - qs_player_delete_record_entries: database/qs_player_delete_record_entries.md
+      - qs_player_events: database/qs_player_events.md
+      - qs_player_handin_record: database/qs_player_handin_record.md
+      - qs_player_handin_record_entries: database/qs_player_handin_record_entries.md
+      - qs_player_move_record: database/qs_player_move_record.md
+      - qs_player_move_record_entries: database/qs_player_move_record_entries.md
+      - qs_player_npc_kill_record: database/qs_player_npc_kill_record.md
+      - qs_player_npc_kill_record_entries: database/qs_player_npc_kill_record_entries.md
+      - qs_player_speech: database/qs_player_speech.md
+      - qs_player_trade_record: database/qs_player_trade_record.md
+      - qs_player_trade_record_entries: database/qs_player_trade_record_entries.md
+    - Zone:
+      - zone: database/zone.md
+      - zone_points: database/zone_points.md
+      - zone_server: database/zone_server.md
+      - zoneserver_auth: database/zoneserver_auth.md

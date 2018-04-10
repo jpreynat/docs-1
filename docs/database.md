@@ -1,0 +1,172 @@
+ - Graveyard: database/graveyard.md
+ - Horses: database/horses.md
+ - Instances:
+	- instance_list: database/instance_list.md
+	- instance_list_player: database/instance_list_player.md
+ - Items:
+	- item_tick: database/item_tick.md
+	- items: database/items.md
+ - Launcher:
+	- launcher: database/launcher.md
+	- launcher_zones: database/launcher_zones.md
+ - Loot:
+	- lootdrop: database/lootdrop.md
+	- lootdrop_entries: database/lootdrop_entries.md
+	- loottable: database/loottable.md
+	- loottable_entries: database/loottable_entries.md
+ - Loginserver:
+	- loginserver_server_accounts: database/loginserver_server_accounts.md
+	- loginserver_server_admin_registration: database/loginserver_server_admin_registration.md
+	- loginserver_server_list_type: database/loginserver_server_list_type.md
+	- loginserver_world_server_registration: database/loginserver_world_server_registration.md
+ - Logging:
+	- eventlog: database/eventlog.md
+ - Logging Settings:
+	- logsys_categories: database/logsys_categories.md
+ - NPCs:
+	- npc_emotes: database/npc_emotes.md
+	- npc_faction: database/npc_faction.md
+	- npc_faction_entries: database/npc_faction_entries.md
+	- npc_spells: database/npc_spells.md
+	- npc_spells_effects: database/npc_spells_effects.md
+	- npc_spells_effects_entries: database/npc_spells_effects_entries.md
+	- npc_spells_entries: database/npc_spells_entries.md
+	- npc_types: database/npc_types.md
+	- npc_types_metadata: database/npc_types_metadata.md
+	- npc_types_tint: database/npc_types_tint.md
+ - Spawn Data:
+	- spawn2: database/spawn2.md
+	- spawn_condition_values: database/spawn_condition_values.md
+	- spawn_conditions: database/spawn_conditions.md
+	- spawn_events: database/spawn_events.md
+	- spawnentry: database/spawnentry.md
+	- spawngroup: database/spawngroup.md
+	- respawn_times: database/respawn_times.md
+ - Spells:
+	- blocked_spells: database/blocked_spells.md
+	- spell_globals: database/spell_globals.md
+	- spells_new: database/spells_new.md
+ - Server Data:
+	- level_exp_mods: database/level_exp_mods.md
+	- variables: database/variables.md
+	- hackers: database/hackers.md
+	- base_data: database/base_data.md
+	- eqtime: database/eqtime.md
+	- saylink: database/saylink.md
+	- class_skill: database/class_skill.md
+	- damageshieldtypes: database/damageshieldtypes.md
+	- db_str: database/db_str.md
+	- discovered_items: database/discovered_items.md
+	- perl_event_export_settings: database/perl_event_export_settings.md
+	- races: database/races.md
+	- skill_caps: database/skill_caps.md
+ - Task System:
+	- activities: database/activities.md
+	- goallists: database/goallists.md
+	- tasks: database/tasks.md
+	- tasksets: database/tasksets.md
+	- proximities: database/proximities.md
+ - Tradeskills:
+	- tradeskill_recipe: database/tradeskill_recipe.md
+	- tradeskill_recipe_entries: database/tradeskill_recipe_entries.md
+ - Univseral Chat System (UCS):
+	- Description: database/chatchannels.md
+	- Description: database/mail.md
+
+ - Mercenaries:
+	- Description: database/mercs.md
+	- Description: database/merc_armorinfo.md
+	- Description: database/merc_buffs.md
+	- Description: database/merc_inventory.md
+	- Description: database/merc_merchant_entries.md
+	- Description: database/merc_merchant_template_entries.md
+	- Description: database/merc_merchant_templates.md
+	- Description: database/merc_name_types.md
+	- Description: database/merc_npc_types.md
+	- Description: database/merc_spell_list_entries.md
+	- Description: database/merc_spell_lists.md
+	- Description: database/merc_stance_entries.md
+	- Description: database/merc_stats.md
+	- Description: database/merc_subtypes.md
+	- Description: database/merc_templates.md
+	- Description: database/merc_types.md
+	- Description: database/merc_weaponinfo.md
+
+ - Merchants:
+	- Description: database/merchantlist.md
+	- Description: database/merchantlist_temp.md
+
+ - Misc:
+	- Description: database/fear_hints.md - potential deprecation
+	- Description: database/inventory_version.md
+	- Description: database/buyer.md
+	- Description: database/veteran_reward_templates.md - unused currently?
+
+ - Objects:
+	- Description: database/object.md
+	- Description: database/object_contents.md
+
+ - Petitions:
+	- Description: database/petitions.md
+
+ - Pets:
+	- Description: database/pets.md
+	- Description: database/pets_equipmentset.md
+	- Description: database/pets_equipmentset_entries.md
+
+ - Quest Globals:
+	- Description: database/quest_globals.md
+
+ - Raids:
+	- Description: database/raid_details.md
+	- Description: database/raid_leaders.md
+	- Description: database/raid_members.md
+
+ - Tribute:
+	- Description: database/tribute_levels.md
+	- Description: database/tributes.md
+
+ - Titles:
+	- Description: database/titles.md
+
+ - Traps:
+	- Description: database/traps.md
+
+ - Trading System (Bazaar):
+	- Description: database/trader.md
+	- Description: database/trader_audit.md
+
+ - Reporting (/report):
+	- Description: database/reports.md
+
+ - Rules:
+	- Description: database/rule_sets.md
+	- Description: database/rule_values.md
+
+ - Shared Bank:
+	- Description: database/sharedbank.md
+
+ - Queryserv (Server):
+	- Description: database/lfguild.md
+	- Description: database/qs_merchant_transaction_record.md
+	- Description: database/qs_merchant_transaction_record_entries.md
+	- Description: database/qs_player_aa_rate_hourly.md
+	- Description: database/qs_player_delete_record.md
+	- Description: database/qs_player_delete_record_entries.md
+	- Description: database/qs_player_events.md
+	- Description: database/qs_player_handin_record.md
+	- Description: database/qs_player_handin_record_entries.md
+	- Description: database/qs_player_move_record.md
+	- Description: database/qs_player_move_record_entries.md
+	- Description: database/qs_player_npc_kill_record.md
+	- Description: database/qs_player_npc_kill_record_entries.md
+	- Description: database/qs_player_speech.md
+	- Description: database/qs_player_trade_record.md
+	- Description: database/qs_player_trade_record_entries.md
+
+ - Zone:
+	- Description: database/zone.md
+	- Description: database/zone_points.md
+	- Description: database/zone_server.md
+	- Description: database/zone_state_dump.md
+	- Description: database/zoneserver_auth.md
