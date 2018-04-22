@@ -1,6 +1,6 @@
 # Project information
-site_name: EQEmulator
-site_- Description: 'A long standing passionate EverQuest Emulator project started in 2001'
+site_name: EverQuest Emulator
+site_description: 'A long standing passionate EverQuest Emulator project started in 2001'
 site_url: 'https://github.com/EQEmu/Server/'
 
 # Repository
@@ -23,6 +23,13 @@ markdown_extensions:
 # Pages
 pages:
   - Home: index.md
+  - Server Install:
+    - Windows: server_install/Windows-Server.md
+    - Linux: server_install/Linux-Server.md
+    - Development Server Setup: server_install/Development-Server-Setup.md
+    # - Linux Loginserver: server_install/Linux-loginserver-notes.md
+    - Server Asset Repositories: server_install/Server-Asset-Repositories.md
+    - Updating Server Assets: server_install/Updating-Server-Assets.md
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):
@@ -279,3 +286,19 @@ pages:
       - zone_points: database/zone_points.md
       - zone_server: database/zone_server.md
       - zoneserver_auth: database/zoneserver_auth.md
+  - Types:
+    - Augment: types/Augment-Types.md
+    - Bag: types/Bag-Types.md
+    - Bard: types/Bard-Types.md
+    - Body: types/Body-Types.md
+    - Class: types/Class-Types.md
+    - Click: types/Click-Types.md
+    - Chat Channel: types/Chat-Channel-Types.md
+    - Door Open: types/Door-Open-Types.md
+    - Element: types/Element-Types.md
+    - Item: types/Item-Types.md
+    - Numhit: types/Numhit-Types.md
+    - Race: types/Race-Types.md
+    - Resist: types/Resist-Types.md
+    - Target: types/Target-Types.md
+    - Ornament: types/Ornament-Types.md
