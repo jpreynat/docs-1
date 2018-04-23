@@ -1,0 +1,7 @@
+pre { color: white !important; }
+
+.md-clipboard:before {
+    transition: color .25s,opacity .25s;
+    color: rgb(255, 255, 255);
+    content: "\E14D";
+}

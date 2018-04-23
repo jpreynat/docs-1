@@ -13,9 +13,15 @@ theme:
 
   feature:
     tabs: true
-
+    
+extra_css:
+  - css/extra.css
 markdown_extensions:
-  - codehilite
+  - codehilite:
+      guess_lang: false
+      use_pygments: true
+      noclasses: true
+      pygments_style: monokai
   - admonition
   - toc:
       permalink: true
