@@ -10,7 +10,8 @@ World will download a fresh copy on bootup and then run the script to make sure 
 
 * First start by going to your server directory and either running the script and going into the interactive prompt, or you can run commands to do things that you would like the script to do
 
-```C:\EQEmu\servers\peq_server>perl eqemu_server.pl
+```
+C:\EQEmu\servers\peq_server>perl eqemu_server.pl
 [Update] No script update necessary...
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -33,7 +34,8 @@ Enter a command #>
 
 Example: perl eqemu_server.pl maps
 
-```>>> Server Assets Menu
+```
+>>> Server Assets Menu
 
  [maps]                 Download latest maps
  [opcodes]              Download opcodes (Patches for eq clients)
@@ -79,7 +81,13 @@ Example: perl eqemu_server.pl maps
 
 Example:
 
-```perl eqemu_server.pl windows_server_download
+```
+perl eqemu_server.pl windows_server_download
+```
+
+Result
+
+```
 [Copy] folder doesn't exist, creating 'updates_staged/'
 [Update] No script update necessary...
 [Update] Fetching Latest Windows Binaries...
@@ -125,9 +133,13 @@ Example:
 
 * **perl eqemu_server.pl windows_server_latest** - will download the latest compiled binaries from our **AppVeyor CI integration**
 
-Example:
+Example
 
-```perl eqemu_server.pl windows_server_latest
+```
+perl eqemu_server.pl windows_server_latest
+```
+Result
+```
 [Update] No script update necessary...
 [Update] Fetching Latest Windows Binaries (unstable) from Appveyor...
 [Download] Saved: (updates_staged/master_windows_build_pdb.zip) from https://ci.appveyor.com/api/projects/KimLS/server/artifacts/build_x86_pdb.zip
@@ -161,4 +173,4 @@ Example:
 
 ### New Server Option
 
-* This command is detailed and used in [[Development Server Setup]]
+* This command is detailed and used in [Development Server Setup](Development-Server-Setup.md)
