@@ -17,9 +17,14 @@ cd eqemu_test
 * Now that we are in our server folder, we can either copy the eqemu_server.pl from another server folder, or we can pull down a fresh copy from Github
 
 * You can use curl, wget or manually create the file
-> curl -O https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl eqemu_server.pl && chmod 755 eqemu_server.pl && ./eqemu_server.pl new_server
 
-> wget --no-check-certificate --cache=no https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl  -O eqemu_server.pl && chmod 755 eqemu_server.pl && ./eqemu_server.pl new_server
+```bash
+curl -O https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl eqemu_server.pl && chmod 755 eqemu_server.pl && ./eqemu_server.pl new_server
+```
+
+```bash
+wget --no-check-certificate --cache=no https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/eqemu_server.pl  -O eqemu_server.pl && chmod 755 eqemu_server.pl && ./eqemu_server.pl new_server
+```
 
 ### Setting Environment Parameters
 

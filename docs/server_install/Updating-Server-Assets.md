@@ -77,7 +77,10 @@ Example: perl eqemu_server.pl maps
 
 ### Updating Windows Binaries - Stable
 
-* **perl eqemu_server.pl windows_server_download** will download EQEmu development team approved 'stable' binaries - you can check the date on the files as to when they were built
+```bash
+perl eqemu_server.pl windows_server_download
+```
+* Will download EQEmu development team approved 'stable' binaries - you can check the date on the files as to when they were built
 
 Example:
 

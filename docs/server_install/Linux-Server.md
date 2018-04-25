@@ -1,10 +1,13 @@
 
+## Supported Distributions
+* Debian
+* Ubuntu
+* CentOS
+* Fedora
+
 ### Starting the Linux Installer
 
 * First you will need to kick off the installer using the single line command line also referenced on the README in the EQEmu/Server repository
-
-### > Debian/Ubuntu/CentOS/Fedora
-
 * You can use curl or wget to kick off the installer (whichever your OS has)
 
 *curl*
