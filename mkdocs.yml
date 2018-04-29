@@ -312,3 +312,14 @@ pages:
     - Resist: types/Resist-Types.md
     - Target: types/Target-Types.md
     - Ornament: types/Ornament-Types.md
+  - Lists:
+    - Animations: lists/Animations.md
+    - Augment: lists/Augment-Restrictions.md
+    - Client Mask: lists/Client-Mask.md
+    - Client Spell ID Limitations: lists/Client-Spell-ID-Limitations.md
+    - Deity: lists/Diety-List.md
+    - Item Sizes: lists/Item-Sizes.md
+    - NATS Channels: lists/NATS-Channels.md
+    - Server Rules: lists/Server-Rules.md
+    - Skills: lists/Skills.md
+    - Zones: lists/Zones-List.md
