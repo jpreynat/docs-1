@@ -2,6 +2,7 @@
 site_name: EverQuest Emulator
 site_description: 'A long standing passionate EverQuest Emulator project started in 2001'
 site_url: 'https://github.com/EQEmu/Server/'
+site_dir: /var/www/html/docs.akkadius.com/
 
 # Repository
 repo_name: 'EQEmu/Server'
