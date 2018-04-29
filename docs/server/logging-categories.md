@@ -1,5 +1,5 @@
 
-Logging categories are defined by what is in the [logsys_categories](/database/logsys_categories) table
+Logging categories have their settings stored in the [logsys_categories](/database/logsys_categories) table, but the categories are defined in [common/eqemu_logsys.h](https://github.com/EQEmu/Server/blob/master/common/eqemu_logsys.h)
 
 ```
 select * from logsys_categories;
