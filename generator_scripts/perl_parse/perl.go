@@ -18,7 +18,14 @@ import (
 func perlGenerate() (err error) {
 
 	//make an outfile to spit out generated markdowns
-	if err = os.Mkdir("out", 0744); err != nil {
+	if err = os.MkdirAll("../../docs/api/perl/events/", 0744); err != nil {
+		if !os.IsExist(err) {
+			err = errors.Wrap(err, "Failed to make out dir")
+			return
+		}
+		err = nil
+	}
+	if err = os.MkdirAll("../../docs/api/perl/functions/", 0744); err != nil {
 		if !os.IsExist(err) {
 			err = errors.Wrap(err, "Failed to make out dir")
 			return
@@ -581,14 +588,53 @@ func perlGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBu
 
 func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string]string, sampleYaml *RootYaml, events []*Event) (err error) {
 
-	for _, v := range eventBuffer {
+	/*for _, v := range eventBuffer {
 		v += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
 		if err = ioutil.WriteFile("out/Perl-Events.md", []byte(v), 0744); err != nil {
 			err = errors.Wrap(err, "Failed to write file")
 			log.Println(err)
 		}
-	}
+	}*/
 
+	/*
+		mkdata, err := ioutil.ReadFile("../../mkdocs.yml")
+		if err != nil {
+			err = errors.Wrap(err, "failed to load mkdocs")
+			return
+		}
+			type EntryMap map[string]string
+
+			type Events []struct {
+				EntryMap `yaml:",inline"`
+			}
+			type Functions []struct {
+				EntryMap `yaml:",inline"`
+			}
+			type Mkdocs struct {
+				Pages []struct {
+					PerlAPI []struct {
+						Events    Events    `yaml:"Events"`
+						Functions Functions `yaml:"Functions`
+					} `yaml:"Perl API"`
+				} `yaml:"pages"`
+			}
+
+			mkdocs := &Mkdocs{}
+			err = yaml.Unmarshal(mkdata, mkdocs)
+			if err != nil {
+				err = errors.Wrap(err, "failed to unmarshal mkdocs")
+				return
+			}
+
+			mkout, err := yaml.Marshal(mkdocs)
+			if err != nil {
+				err = errors.Wrap(err, "failed to marshal mkdocs")
+				return
+			}
+			fmt.Println(string(mkout))
+	*/
+
+	mkdocs := "\n  - Perl API:\n    - Events:"
 	for _, event := range events {
 
 		argLine := ""
@@ -611,26 +657,35 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 		buf += fmt.Sprintf("### Example\n")
 		buf += fmt.Sprintf("```perl\nsub %s {\n%s}\n```", event.Name, argLine)
 		buf += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
-		err = ioutil.WriteFile(fmt.Sprintf("out/Perl-%s.md", strings.Title(event.Name)), []byte(buf), 0744)
+
+		filePath := fmt.Sprintf("api/perl/events/%s.md", strings.ToLower(event.Name))
+		err = ioutil.WriteFile("../../docs/"+filePath, []byte(buf), 0744)
 		if err != nil {
 			err = errors.Wrapf(err, "Failed to write file %s", event.Name)
 			return
 		}
+		mkdocs += fmt.Sprintf("\n      - %s: %s", strings.ToUpper(event.Name), strings.ToLower(filePath))
 	}
+	mkdocs += "\n     - Functions:"
 
 	//iterate functionBuffer, which is grouped by scope
-	for k, v := range functionBuffer {
+	/*for k, v := range functionBuffer {
 		if k == "" {
 			continue
 		}
 		v += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
 		//log.Println(k)
 		//v = fmt.Sprintf("**Function**|**Summary**\n:-----|:-----\n%s", v)
-		if err = ioutil.WriteFile("out/Perl-"+strings.Title(k)+".md", []byte(v), 0744); err != nil {
+
+		filePath := fmt.Sprintf("api/perl/functions/%s.md", strings.ToLower(k))
+		//if err = ioutil.WriteFile("out/Perl-"+strings.Title(k)+".md", []byte(v), 0744); err != nil {
+		if err = ioutil.WriteFile("../../docs/"+filePath, []byte(v), 0744); err != nil {
 			err = errors.Wrap(err, "Failed to write file")
 			log.Println(err)
 		}
-	}
+
+		mkdocs += fmt.Sprintf("\n      - %s: %s", strings.ToLower(k), strings.ToLower(filePath))
+	}*/
 
 	//write new example functions
 	sData, err := yaml.Marshal(sampleYaml)
@@ -646,6 +701,16 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 	fmt.Println("Found", len(sampleYaml.Scopes), "scopes")
 	for _, scope := range sampleYaml.Scopes {
 		fmt.Println("Found", len(scope.Functions), "functions in", scope.Name)
+
+		if err = os.MkdirAll("../../docs/api/perl/functions/"+strings.ToLower(scope.Name), 0744); err != nil {
+			if !os.IsExist(err) {
+				err = errors.Wrap(err, "Failed to make out dir")
+				return
+			}
+			err = nil
+		}
+		mkdocs += fmt.Sprintf("\n      - %s:", strings.ToLower(scope.Name))
+
 		for _, function := range scope.Functions {
 
 			buf := fmt.Sprintf("%s\n", function.Summary)
@@ -654,12 +719,22 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 			}
 			buf += fmt.Sprintf("### Example\n%s\n", function.Example)
 			buf += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
-			err = ioutil.WriteFile(fmt.Sprintf("out/Perl-%s-%s.md", strings.Title(scope.Name), function.Name), []byte(buf), 0744)
+
+			filePath := fmt.Sprintf("api/perl/functions/%s/%s.md", strings.ToLower(scope.Name), strings.ToLower(function.Name))
+			err = ioutil.WriteFile("../../docs/"+filePath, []byte(buf), 0744)
 			if err != nil {
 				err = errors.Wrapf(err, "Failed to write file %s %s", scope.Name, function.Name)
 				return
 			}
+
+			mkdocs += fmt.Sprintf("\n        - %s: %s", strings.ToLower(function.Name), strings.ToLower(filePath))
 		}
+	}
+
+	err = ioutil.WriteFile("mkdocs.yaml", []byte(mkdocs), 0744)
+	if err != nil {
+		err = errors.Wrap(err, "failed to write mkdocs")
+		return
 	}
 	return
 }
