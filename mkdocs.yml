@@ -35,9 +35,11 @@ pages:
     - Windows: server_install/Windows-Server.md
     - Linux: server_install/Linux-Server.md
     - Development Server Setup: server_install/Development-Server-Setup.md
-    # - Linux Loginserver: server_install/Linux-loginserver-notes.md
     - Server Asset Repositories: server_install/Server-Asset-Repositories.md
     - Updating Server Assets: server_install/Updating-Server-Assets.md
+    - Configuration: 
+      - eqemu_config: server_install/eqemu_config.md
+      - PvP: server_install/PvP.md 
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):

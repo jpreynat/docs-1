@@ -20,7 +20,7 @@ curl -O https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/linu
 
 ```bash 
 wget --no-check-certificate https://raw.githubusercontent.com/EQEmu/Server/master/utils/scripts/linux_installer/install.sh -O install.sh && chmod 755 install.sh && ./install.sh
-```
+``` 
 
 ### Enter Environment Parameters
 
@@ -142,7 +142,7 @@ World: UP Zones: (30/30) UCS: UP Queryserv: UP
 ```
 ### Basic Server Configuration
 
-* To configure your server name, shortname and other parameters, you can visit [eqemu_config](eqemu_config.md)
+* To configure your server name, shortname and other parameters, you can visit [eqemu_config](./eqemu_config)
 * To configure additional zones to boot, those options can be set in the startup script
 
 That's it! You should be set!
