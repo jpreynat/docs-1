@@ -11,7 +11,6 @@ edit_uri: ""
 
 theme:
   name: 'material'
-
   feature:
     tabs: true
     
@@ -29,20 +28,22 @@ markdown_extensions:
   - toc:
       permalink: true
 
-# Pages
 pages:
   - Home: index.md
   - Server:
     - Server Install:
       - Windows: server/Windows-Server.md
       - Linux: server/Linux-Server.md
-    - Development Server Setup: server/Development-Server-Setup.md
+      - Dev Server Folders: server/Development-Server-Setup.md
     - Server Assets:
       - Asset Repositories: server/Server-Asset-Repositories.md
       - Updating Assets: server/Updating-Server-Assets.md
     - Configuration: 
       - eqemu_config: server/eqemu_config.md
       - PvP: server/PvP.md 
+    - Logging System:
+      - How to Use: server/logging-system.md
+      - Packet Logging: server/packet-logging.md
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):
