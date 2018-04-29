@@ -32,14 +32,14 @@ markdown_extensions:
 pages:
   - Home: index.md
   - Server Install:
-    - Windows: server_install/Windows-Server.md
-    - Linux: server_install/Linux-Server.md
-    - Development Server Setup: server_install/Development-Server-Setup.md
-    - Server Asset Repositories: server_install/Server-Asset-Repositories.md
-    - Updating Server Assets: server_install/Updating-Server-Assets.md
+    - Windows: server/Windows-Server.md
+    - Linux: server/Linux-Server.md
+    - Development Server Setup: server/Development-Server-Setup.md
+    - Server Asset Repositories: server/Server-Asset-Repositories.md
+    - Updating Server Assets: server/Updating-Server-Assets.md
     - Configuration: 
-      - eqemu_config: server_install/eqemu_config.md
-      - PvP: server_install/PvP.md 
+      - eqemu_config: server/eqemu_config.md
+      - PvP: server/PvP.md 
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):
