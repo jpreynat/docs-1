@@ -731,7 +731,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 		}
 	}
 
-	err = ioutil.WriteFile("mkdocs.yaml", []byte(mkdocs), 0744)
+	err = ioutil.WriteFile("perl-mkdocs.yaml", []byte(mkdocs), 0744)
 	if err != nil {
 		err = errors.Wrap(err, "failed to write mkdocs")
 		return
