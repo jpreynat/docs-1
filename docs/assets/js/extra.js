@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     load_navpane();
+    scroll_to_active_nav();
 });
 
 function load_navpane() {
@@ -24,4 +25,12 @@ function load_navpane() {
     for(var i = 0; i < nav.length; i++) {
        nav.item(i).checked = true;
     }
+}
+
+function scroll_to_active_nav() {
+    var nav_link = document.getElementsByClassName('md-nav__link--active');
+    var top_position = nav_link[1].offsetTop;
+
+    var nav_pane = document.getElementsByClassName('md-sidebar__scrollwrap');
+    nav_pane[0].scrollTop = top_position - 50;
 }
