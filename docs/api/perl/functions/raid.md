@@ -1,0 +1,20 @@
+* [[$raid->BalanceHP(penalty, gid) # void|Perl-Raid-BalanceHP]]
+* [[$raid->CastGroupSpell(caster, spellid, gid) # void|Perl-Raid-CastGroupSpell]]
+* [[$raid->GetClientByIndex(int index) # void|Perl-Raid-GetClientByIndex]]
+* [[$raid->GetGroup(string name) # uint|Perl-Raid-GetGroup]]
+* [[$raid->GetHighestLevel() # uint|Perl-Raid-GetHighestLevel]]
+* [[$raid->GetID() # uint|Perl-Raid-GetID]]
+* [[$raid->GetLowestLevel() # uint|Perl-Raid-GetLowestLevel]]
+* [[$raid->GetTotalRaidDamage(other) # uint|Perl-Raid-GetTotalRaidDamage]]
+* [[$raid->GroupCount(gid) # uint|Perl-Raid-GroupCount]]
+* [[$raid->IsGroupLeader(who) # bool|Perl-Raid-IsGroupLeader]]
+* [[$raid->IsLeader(string name) # bool|Perl-Raid-IsLeader]]
+* [[$raid->IsRaidMember(string name) # bool|Perl-Raid-IsRaidMember]]
+* [[$raid->RaidCount() # uint|Perl-Raid-RaidCount]]
+* [[$raid->SplitExp(int exp, other) # void|Perl-Raid-SplitExp]]
+* [[$raid->SplitMoney(int copper, int silver, int gold, int platinum) # void|Perl-Raid-SplitMoney]]
+* [[$raid->TeleportGroup(sender, zoneID, float x, float y, float z, float heading, gid) # void|Perl-Raid-TeleportGroup]]
+* [[$raid->TeleportRaid(sender, zoneID, float x, float y, float z, float heading) # void|Perl-Raid-TeleportRaid]]
+
+
+Generated On 2018-04-29T00:30:15-07:00
