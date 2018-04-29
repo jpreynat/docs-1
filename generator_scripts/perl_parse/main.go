@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	path := "../../../zone/embparser_api.cpp"
+	path := "../../../Server/zone/embparser_api.cpp"
 	err := readFile(path)
 	if err != nil {
 		log.Panicf("Failed to read file: %s", err.Error())
