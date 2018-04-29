@@ -42,49 +42,43 @@ Detail|3|Use this for extreme detail in logging, usually in extreme debugging in
 
 ## In-Game Commands
 
-*   **#logs** \- Will display usage menu
-*   **#logs reload_all** \- Reload all settings in world and all zone processes with what is defined in the database
-*   **#logs list_settings** \- Shows current log settings and categories loaded into the current process' memory
-*   **#logs set** \[console|file|gmsay\] \- Sets log settings during the lifetime of the zone
+**Command**|**Description**|
+-----|-----
+#logs | Displays usage menu
+#logs reload_all | Reload all settings in world and all zone processes with what is defined in the database
+#logs list_settings | Shows current log settings and categories loaded into the current process' memory
+#logs set \[console\|file\|gmsay\] | Sets log settings during the lifetime of the zone
 
-![](/l/wa/images/log_system/logsys_log_command.PNG)
+```
+#logs set [gmsay|file|console] [category_id] [log_level]
+```
 
-#logs list settings
+## File Logs
 
-![](/l/wa/images/log_system/logsys_log_command_list_settings.PNG)
-
-#### #logs set gmsay example, enabling MySQL Query debugging to gmsay
-
-![](/l/wa/images/log_system/logsys_log_set_command.PNG)
-
-### File Logs
-
-*   Not a lot has changed about how we do logging, but here are some distinct changes:
-    *   All **zone logs** go underneath a respective **logs/zone/**
-        *   **â€‹**All zones, once booted up, will have a name that actually means something to a server administrator:
-        *   **Examples:**
-            *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_20084.log**
-            *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_24356.log**
-            *   **zone_20084.log** \- A zone that has been booted up as a dynamic, but not assigned to any logical zone yet
-    *   All **crash logs** will make their way underneath **logs/crash**
-    *   All other process logs go to the top level of logs, this may change
+*   All **zone logs** go underneath a respective **logs/zone/**
+    *   All zones, once booted up, will have a name that actually means something to a server administrator:
+        *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_20084.log**
+        *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_24356.log**
+        *   **zone_20084.log** \- A zone that has been booted up as a dynamic, but not assigned to any logical zone yet
+*   **Crash Logs** will make their way underneath **logs/crash**
+*   All other process logs go to the top level of logs, this may change
 *   **Naming Convention:**
-    *   **â€‹Unless a zone is using zone properties for the file name, most processes will look like the following convention:**
-        *   **â€‹process\_name\_processid.log**
+    *   Unless a zone is using zone properties for the file name, most processes will look like the following convention
+        *   process\_name\_processid.log
 
-### Example Output Screenshots
+## Example Output Screenshots
 
-**An example of GMSay output of several different categories being displayed**
+### GM-Say
 
-![](http://i.imgur.com/tQbuKUM.jpg)
+![](https://i.imgur.com/FaWAgAq.gif)
 
-**Windows Console of Zone, initial bootup**
+### Windows Console of Zone
 
-![](/l/wa/images/log_system/logsys_console.PNG)
+![](https://i.imgur.com/okWg2y8.png)
 
-**Linux Console**
+## Linux Console
 
-**(ANSI Color support)**
+ANSI Color support
 
-![](/l/wa/images/log_system/logsys_linux_console.PNG)
+![](https://i.imgur.com/SC9lO4N.png)
 
