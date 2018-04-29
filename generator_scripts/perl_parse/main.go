@@ -94,6 +94,9 @@ func main() {
 	if err = perlGenerate(); err != nil {
 		log.Fatalf("Error while generating perl: %s", err.Error())
 	}
+	if err = luaGenerate(); err != nil {
+		log.Fatalf("Error while generating lua: %s", err.Error())
+	}
 
 	log.Println("Finished in", time.Since(start))
 }
