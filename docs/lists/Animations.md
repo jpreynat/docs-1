@@ -1,4 +1,4 @@
-* These animations are different and vary depending on the race model that the animation packet is sent with
+These animations are different and vary depending on the race model that the animation packet is sent with
 
 **ID**|**Animation**
 :-----|:-----
