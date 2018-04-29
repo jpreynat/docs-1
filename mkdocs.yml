@@ -15,9 +15,9 @@ theme:
     tabs: true
     
 extra_css:
-  - css/extra.css
+  - assets/css/extra.css
 extra_javascript:
-  - js/extra.js
+  - assets/js/extra.js
 markdown_extensions:
   - codehilite:
       guess_lang: false
