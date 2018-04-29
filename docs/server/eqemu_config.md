@@ -7,7 +7,7 @@
 
 * Config format: .json
 * Below is a working base config example from our installer:
-* https://github.com/Akkadius/EQEmuInstall/blob/master/eqemu_config.json
+* [https://github.com/Akkadius/EQEmuInstall/blob/master/eqemu_config.json](https://github.com/Akkadius/EQEmuInstall/blob/master/eqemu_config.json)
 
 ## world
 

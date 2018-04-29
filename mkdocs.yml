@@ -43,6 +43,8 @@ pages:
       - PvP: server/PvP.md 
     - Logging System:
       - How to Use: server/logging-system.md
+      - Categories: server/logging-categories.md
+      - For Developers: server/logging-for-developers.md
       - Packet Logging: server/packet-logging.md
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md

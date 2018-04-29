@@ -31,14 +31,9 @@ Detail|3|Use this for extreme detail in logging, usually in extreme debugging in
 
 ### Settings
 
-*   All settings are managed in **logsys_categories** database table as mentioned above.
+*   All settings are managed in **logsys_categories** database table
 *   When a process boots up, such as **zone/world/ucs/queryserv/etc**. \- These settings will load and whatever applies to the server category wise is what it will use as **'rules'** to understand where to send output, as well as what level of information (high or low) to display
     *   Please note that **log\_to\_gmsay** is only available for **Zone level debugging.**
-
-### Enabling Settings In-Game
-
-*   So what if I have world and zone up, and I want to make changes to my logging?
-    *   Before this change, you'd have to recompile your binaries in order to change the level of logging or the categories that you see. Now everything is done at runtime and can be easily reloaded at runtime
 
 ## In-Game Commands
 
@@ -57,14 +52,14 @@ Detail|3|Use this for extreme detail in logging, usually in extreme debugging in
 
 *   All **zone logs** go underneath a respective **logs/zone/**
     *   All zones, once booted up, will have a name that actually means something to a server administrator:
-        *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_20084.log**
-        *   **nexus\_version\_0\_inst\_id\_0\_port\_7000\_24356.log**
-        *   **zone_20084.log** \- A zone that has been booted up as a dynamic, but not assigned to any logical zone yet
-*   **Crash Logs** will make their way underneath **logs/crash**
+        *   nexus\_version\_0\_inst\_id\_0\_port\_7000\_20084.log
+        *   nexus\_version\_0\_inst\_id\_0\_port\_7000\_24356.log
+        *   zone_20084.log \- A zone that has been booted up as a dynamic, but not assigned to any logical zone yet
+*   Crash Logs will make their way underneath `logs/crash`
 *   All other process logs go to the top level of logs, this may change
-*   **Naming Convention:**
+*   Naming Convention:
     *   Unless a zone is using zone properties for the file name, most processes will look like the following convention
-        *   process\_name\_processid.log
+        *   process\_name\_process_id.log
 
 ## Example Output Screenshots
 
