@@ -24,3 +24,7 @@ pre { color: white !important; }
 table tr:nth-child(2n) {
     background-color: #f6f8fa;
 }
+
+td {
+    border-right: .05rem solid rgba(0,0,0,.07);
+}
