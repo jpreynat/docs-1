@@ -29,8 +29,16 @@ function load_navpane() {
 
 function scroll_to_active_nav() {
     var nav_link = document.getElementsByClassName('md-nav__link--active');
-    var top_position = nav_link[1].offsetTop;
 
+    if (typeof nav_link[1] === "undefined")
+        return;
+
+    var top_position = nav_link[1].offsetTop;
     var nav_pane = document.getElementsByClassName('md-sidebar__scrollwrap');
+
+    if (typeof nav_pane[1] === "undefined")
+        return;
+
     nav_pane[0].scrollTop = top_position - 50;
 }
+
