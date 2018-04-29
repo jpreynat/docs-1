@@ -13,18 +13,20 @@ import (
 )
 
 func main() {
-	path := "../../../zone/embparser_api.cpp"
+	path := "../../../Server/zone/embparser_api.cpp"
 	err := readFile(path)
 	if err != nil {
 		log.Panicf("Failed to read file: %s", err.Error())
 	}
 }
 
+//API contains the root objects being scanned
 type API struct {
 	Function  string
 	Arguments []*Argument
 }
 
+//Argument contains the API name, type, and string for a function argument
 type Argument struct {
 	Name string
 	Type string
@@ -169,7 +171,7 @@ func readFile(path string) (err error) {
 		}
 
 		newArgs := []string{}
-		for j, _ := range args {
+		for j := range args {
 			args[j] = strings.TrimSpace(args[j])
 			if len(args[j]) == 0 {
 				continue
