@@ -1,6 +1,10 @@
-* List used in quest API calls such as
+List used in quest API calls such as
 
-`quest::changedeity(201); - Changes the player's deity to Bertoxxulous.`
+```perl
+quest::changedeity(201); # Changes the player's deity to Bertoxxulous.
+```
+
+---
 
 **Deity**|**Deity ID**|**Deity Bitmask**
 :-----|:-----|:-----
