@@ -15,17 +15,17 @@ import (
 	"github.com/pkg/errors"
 )
 
-func perlGenerate() (err error) {
+func luaGenerate() (err error) {
 
 	//make an outfile to spit out generated markdowns
-	if err = os.MkdirAll("../../docs/api/perl/events/", 0744); err != nil {
+	if err = os.MkdirAll("../../docs/api/lua/events/", 0744); err != nil {
 		if !os.IsExist(err) {
 			err = errors.Wrap(err, "Failed to make out dir")
 			return
 		}
 		err = nil
 	}
-	if err = os.MkdirAll("../../docs/api/perl/functions/", 0744); err != nil {
+	if err = os.MkdirAll("../../docs/api/lua/functions/", 0744); err != nil {
 		if !os.IsExist(err) {
 			err = errors.Wrap(err, "Failed to make out dir")
 			return
@@ -37,11 +37,11 @@ func perlGenerate() (err error) {
 	functions := []*API{}
 	events := []*Event{}
 
-	//iterate all perl files
-	for _, path := range perlPaths {
+	//iterate all lua files
+	for _, path := range luaPaths {
 		newFunctions := []*API{}
 		newEvents := []*Event{}
-		newFunctions, newEvents, err = perlProcessFile(path)
+		newFunctions, newEvents, err = luaProcessFile(path)
 		if err != nil {
 			err = errors.Wrap(err, "Failed to read file")
 			return
@@ -61,18 +61,18 @@ func perlGenerate() (err error) {
 	log.Println("loaded", len(functions), "functions")
 
 	//functionBuffer is grouped by scope
-	//I had to do this because not every perl file aligns to scope
+	//I had to do this because not every lua file aligns to scope
 
 	sort.Sort(FunctionsByName{functions})
 
 	sort.Sort(EventsByName{events})
 
-	functionBuffer, eventBuffer, sampleYaml, err := perlGroupAndPrepareFunctions(functions, events)
+	functionBuffer, eventBuffer, sampleYaml, err := luaGroupAndPrepareFunctions(functions, events)
 	if err != nil {
 		err = errors.Wrap(err, "Failed to prepare and group functions")
 		return
 	}
-	if err = perlWriteWikiPages(functionBuffer, eventBuffer, sampleYaml, events); err != nil {
+	if err = luaWriteWikiPages(functionBuffer, eventBuffer, sampleYaml, events); err != nil {
 		err = errors.Wrap(err, "Failed to write wiki pages")
 		return
 	}
@@ -80,7 +80,7 @@ func perlGenerate() (err error) {
 	return
 }
 
-func perlProcessFile(path *path) (functions []*API, events []*Event, err error) {
+func luaProcessFile(path *path) (functions []*API, events []*Event, err error) {
 
 	var index int
 	inFile, err := os.Open(path.Name)
@@ -119,7 +119,7 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 		}
 
 		//See if line has any event info
-		index = strings.Index(line, "case EVENT")
+		index = strings.Index(line, "void handle_")
 		if index > 0 {
 			if len(lastEvents) > 0 && len(lastEvents[0].Arguments) > 0 {
 				for _, event := range lastEvents {
@@ -130,11 +130,12 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 			}
 
 			event := &Event{}
-			event.Name = line[index+5:]
-			index = strings.Index(event.Name, ":")
+			event.Name = line[index+12:]
+			event.Name = event.Name[0:strings.Index(event.Name, "(")]
+			/*index = strings.Index(event.Name, ":")
 			if index > 0 {
 				event.Name = event.Name[0:index]
-			}
+			}*/
 			lastEvents = append(lastEvents, event)
 			continue
 		}
@@ -155,7 +156,7 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 		}
 
 		//see if the line contains any valid return types
-		for key, val := range perlReturnTypes {
+		for key, val := range luaReturnTypes {
 			if strings.Contains(line, key) {
 				lastAPI.Return = val
 				break
@@ -232,9 +233,10 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 		argLine := ""
 		args := []string{}
 		//Find line
-		key = `Perl_croak(aTHX_ "Usage:`
+		key = `void Lua_` + path.Scope + "::"
 		index = strings.Index(line, key)
 		if index > 0 {
+			fmt.Println("Found function", line)
 			function = line[index+len(key):]
 		}
 
@@ -316,7 +318,7 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 				isOptional = true
 			}
 			arg = reg.ReplaceAllString(arg, "")
-			argType, _ := perlKnownTypes[arg]
+			argType, _ := luaKnownTypes[arg]
 			argument := &Argument{
 				Name:     arg,
 				Type:     argType,
@@ -358,7 +360,7 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 			foundCount++
 		}
 	}
-	log.Println(foundCount, "functions properly identified,", failCount, "have errors")
+	log.Println(foundCount, "functions proluay identified,", failCount, "have errors")
 
 	for _, api := range functions {
 		if len(api.Function) == 0 {
@@ -451,13 +453,13 @@ func perlProcessFile(path *path) (functions []*API, events []*Event, err error) 
 	return
 }
 
-func perlGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBuffer map[string]string, eventBuffer map[string]string, sampleYaml *RootYaml, err error) {
+func luaGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBuffer map[string]string, eventBuffer map[string]string, sampleYaml *RootYaml, err error) {
 	functionBuffer = make(map[string]string)
 	eventBuffer = make(map[string]string)
 	sampleYaml = &RootYaml{}
 
 	for _, event := range events {
-		line := fmt.Sprintf("* [[%s|Perl-%s]]\n", event.Name, event.Name)
+		line := fmt.Sprintf("* [[%s|lua-%s]]\n", event.Name, event.Name)
 		eventBuffer[""] += line
 	}
 
@@ -489,7 +491,7 @@ func perlGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBu
 		}
 		//enclose function with a comment of return type
 		line += fmt.Sprintf(") # %s", api.Return)
-		line += fmt.Sprintf("|Perl-%s-%s]]\n", api.Scope, strings.Title(api.Function))
+		line += fmt.Sprintf("|lua-%s-%s]]\n", api.Scope, strings.Title(api.Function))
 		//add to functionBuffer based on scope
 		functionBuffer[api.Scope] += line
 		isScoped := false
@@ -567,9 +569,9 @@ func perlGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBu
 						exampleArgs = exampleArgs[0 : len(exampleArgs)-2]
 					}
 
-					example := fmt.Sprintf("\n```perl\n%s\n%s%s(%s); # Returns %s\n```", examplePrep, api.Object, api.Function, exampleArgs, api.Return)
+					example := fmt.Sprintf("\n```lua\n%s\n%s%s(%s); # Returns %s\n```", examplePrep, api.Object, api.Function, exampleArgs, api.Return)
 					if api.Return != "void" {
-						example = fmt.Sprintf("\n```perl\n%smy $val = %s%s(%s);\nquest::say($val); # Returns %s\n```", examplePrep, api.Object, api.Function, exampleArgs, api.Return)
+						example = fmt.Sprintf("\n```lua\n%smy $val = %s%s(%s);\nquest::say($val); # Returns %s\n```", examplePrep, api.Object, api.Function, exampleArgs, api.Return)
 					}
 
 					function := &FuncYaml{
@@ -586,11 +588,11 @@ func perlGroupAndPrepareFunctions(functions []*API, events []*Event) (functionBu
 	return
 }
 
-func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string]string, sampleYaml *RootYaml, events []*Event) (err error) {
+func luaWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string]string, sampleYaml *RootYaml, events []*Event) (err error) {
 
 	/*for _, v := range eventBuffer {
 		v += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
-		if err = ioutil.WriteFile("out/Perl-Events.md", []byte(v), 0744); err != nil {
+		if err = ioutil.WriteFile("out/lua-Events.md", []byte(v), 0744); err != nil {
 			err = errors.Wrap(err, "Failed to write file")
 			log.Println(err)
 		}
@@ -612,10 +614,10 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 			}
 			type Mkdocs struct {
 				Pages []struct {
-					PerlAPI []struct {
+					luaAPI []struct {
 						Events    Events    `yaml:"Events"`
 						Functions Functions `yaml:"Functions`
-					} `yaml:"Perl API"`
+					} `yaml:"lua API"`
 				} `yaml:"pages"`
 			}
 
@@ -634,7 +636,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 			fmt.Println(string(mkout))
 	*/
 
-	mkdocs := "\n  - Perl API:\n    - Events:"
+	mkdocs := "\n  - lua API:\n    - Events:"
 	for _, event := range events {
 
 		argLine := ""
@@ -655,10 +657,10 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 
 		}
 		buf += fmt.Sprintf("### Example\n")
-		buf += fmt.Sprintf("```perl\nsub %s {\n%s}\n```", event.Name, argLine)
+		buf += fmt.Sprintf("```lua\nsub %s {\n%s}\n```", event.Name, argLine)
 		buf += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
 
-		filePath := fmt.Sprintf("api/perl/events/%s.md", strings.ToLower(event.Name))
+		filePath := fmt.Sprintf("api/lua/events/%s.md", strings.ToLower(event.Name))
 		err = ioutil.WriteFile("../../docs/"+filePath, []byte(buf), 0744)
 		if err != nil {
 			err = errors.Wrapf(err, "Failed to write file %s", event.Name)
@@ -677,8 +679,8 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 		//log.Println(k)
 		//v = fmt.Sprintf("**Function**|**Summary**\n:-----|:-----\n%s", v)
 
-		filePath := fmt.Sprintf("api/perl/functions/%s.md", strings.ToLower(k))
-		//if err = ioutil.WriteFile("out/Perl-"+strings.Title(k)+".md", []byte(v), 0744); err != nil {
+		filePath := fmt.Sprintf("api/lua/functions/%s.md", strings.ToLower(k))
+		//if err = ioutil.WriteFile("out/lua-"+strings.Title(k)+".md", []byte(v), 0744); err != nil {
 		if err = ioutil.WriteFile("../../docs/"+filePath, []byte(v), 0744); err != nil {
 			err = errors.Wrap(err, "Failed to write file")
 			log.Println(err)
@@ -693,7 +695,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 		err = errors.Wrap(err, "Failed to marshal sample")
 		return
 	}
-	if err = ioutil.WriteFile("perlsample.yml", []byte(sData), 0744); err != nil {
+	if err = ioutil.WriteFile("luasample.yml", []byte(sData), 0744); err != nil {
 		err = errors.Wrap(err, "Failed to write sample")
 		return
 	}
@@ -702,7 +704,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 	for _, scope := range sampleYaml.Scopes {
 		fmt.Println("Found", len(scope.Functions), "functions in", scope.Name)
 
-		if err = os.MkdirAll("../../docs/api/perl/functions/"+strings.ToLower(scope.Name), 0744); err != nil {
+		if err = os.MkdirAll("../../docs/api/lua/functions/"+strings.ToLower(scope.Name), 0744); err != nil {
 			if !os.IsExist(err) {
 				err = errors.Wrap(err, "Failed to make out dir")
 				return
@@ -720,7 +722,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 			buf += fmt.Sprintf("### Example\n%s\n", function.Example)
 			buf += fmt.Sprintf("\n\nGenerated On %s", time.Now().Format(time.RFC3339))
 
-			filePath := fmt.Sprintf("api/perl/functions/%s/%s.md", strings.ToLower(scope.Name), strings.ToLower(function.Name))
+			filePath := fmt.Sprintf("api/lua/functions/%s/%s.md", strings.ToLower(scope.Name), strings.ToLower(function.Name))
 			err = ioutil.WriteFile("../../docs/"+filePath, []byte(buf), 0744)
 			if err != nil {
 				err = errors.Wrapf(err, "Failed to write file %s %s", scope.Name, function.Name)
@@ -731,7 +733,7 @@ func perlWriteWikiPages(functionBuffer map[string]string, eventBuffer map[string
 		}
 	}
 
-	err = ioutil.WriteFile("perl-mkdocs.yaml", []byte(mkdocs), 0744)
+	err = ioutil.WriteFile("lua-mkdocs.yaml", []byte(mkdocs), 0744)
 	if err != nil {
 		err = errors.Wrap(err, "failed to write mkdocs")
 		return
