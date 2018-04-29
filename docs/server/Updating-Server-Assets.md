@@ -1,8 +1,9 @@
 We have an automated way for pulling down certain assets and maintaining parts of the server
 
-The main script we use for this is **eqemu_server.pl** in the server folder
+## Maintenance Script
 
-**eqemu_server.pl** is a required part of the server binary set. 
+* The main script we use for this is **eqemu_server.pl** in the server folder
+  * **eqemu_server.pl** is a required part of the server binary set. 
 
 World will download a fresh copy on bootup and then run the script to make sure no database schema updates need to be ran, it also does a handful of other very powerful things
 
@@ -82,7 +83,7 @@ perl eqemu_server.pl windows_server_download
 ```
 * Will download EQEmu development team approved 'stable' binaries - you can check the date on the files as to when they were built
 
-Example:
+Example
 
 ```
 perl eqemu_server.pl windows_server_download
@@ -134,14 +135,16 @@ Result
 
 ### Updating Windows Binaries - Unstable - Latest
 
-* **perl eqemu_server.pl windows_server_latest** - will download the latest compiled binaries from our **AppVeyor CI integration**
+The following will download the latest compiled binaries from our **AppVeyor CI integration**
 
 Example
 
-```
+```bash
 perl eqemu_server.pl windows_server_latest
 ```
+
 Result
+
 ```
 [Update] No script update necessary...
 [Update] Fetching Latest Windows Binaries (unstable) from Appveyor...

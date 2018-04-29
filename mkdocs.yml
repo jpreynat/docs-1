@@ -31,12 +31,14 @@ markdown_extensions:
 # Pages
 pages:
   - Home: index.md
-  - Server Install:
-    - Windows: server/Windows-Server.md
-    - Linux: server/Linux-Server.md
+  - Server:
+    - Server Install:
+      - Windows: server/Windows-Server.md
+      - Linux: server/Linux-Server.md
     - Development Server Setup: server/Development-Server-Setup.md
-    - Server Asset Repositories: server/Server-Asset-Repositories.md
-    - Updating Server Assets: server/Updating-Server-Assets.md
+    - Server Assets:
+      - Asset Repositories: server/Server-Asset-Repositories.md
+      - Updating Assets: server/Updating-Server-Assets.md
     - Configuration: 
       - eqemu_config: server/eqemu_config.md
       - PvP: server/PvP.md 
