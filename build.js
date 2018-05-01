@@ -78,6 +78,39 @@ if (command === "build") {
 	}
 
 }
+else if (command === "deploy") {
+	/**
+	 * Open file or throw
+	 */
+	try {
+		const doc = yaml.safeLoad(fs.readFileSync('./mkdocs.yml.master', 'utf8'));
+
+		/**
+		 * Create new config
+		 */
+		var new_config = yaml.dump(doc, {});
+
+		/**
+		 * Write new config to mkdocs.yml
+		 */
+		fs.writeFileSync('./mkdocs.yml', new_config, 'utf8');
+
+		console.info("Deploying docs...");
+
+		const mkdocs_deploy = spawn('mkdocs', ['build']);
+
+		mkdocs_deploy.stdout.on('data', function (data) {
+			console.log(data.toString().replace("\n", ""));
+		});
+
+		mkdocs_deploy.stderr.on('data', function (data) {
+			console.log(data.toString().replace("\n", ""));
+		});
+
+	} catch (e) {
+		console.log(e);
+	}
+}
 else {
 	console.error("Command '" + command + "' not found");
 }

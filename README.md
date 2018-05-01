@@ -45,3 +45,11 @@ The page tree for `Server` should at this point take a split second and you can 
 ```
 node build.js build all
 ```
+
+### Deploy
+
+To do a full deploy - assuming you have the `site_dir` set in `mkdocs.yml.master` - you can deploy via
+
+```
+node build.js deploy
+```
