@@ -17,32 +17,39 @@ if (command === "build") {
 		const section_to_build = process.argv[3];
 
 		/**
-		 * Find corresponding section in config file
-		 * @type {boolean}
+		 * Build a specific top level section of the docs
 		 */
-		let found_section = false;
-		let section_data = {};
-		for (var key in doc.pages) {
-			if (typeof doc.pages[key][section_to_build] !== "undefined") {
-				found_section = true;
-				section_data = doc.pages[key][section_to_build];
+		if (section_to_build !== "all") {
+
+			/**
+			 * Find corresponding section in config file
+			 * @type {boolean}
+			 */
+			let found_section = false;
+			let section_data = {};
+			for (var key in doc.pages) {
+				if (typeof doc.pages[key][section_to_build] !== "undefined") {
+					found_section = true;
+					section_data = doc.pages[key][section_to_build];
+				}
 			}
-		}
 
-		/**
-		 * Throw if not found
-		 */
-		if (!found_section) {
-			throw("Section '" + section_to_build + " not found in mkdocs.yml!");
-		}
+			/**
+			 * Throw if not found
+			 */
+			if (!found_section) {
+				throw("Section '" + section_to_build + " not found in mkdocs.yml!");
+			}
 
-		/**
-		 * Build only the section we found
-		 * @type {Array}
-		 */
-		doc.pages = [];
-		doc.pages[0] = {};
-		doc.pages[0][section_to_build] = section_data;
+
+			/**
+			 * Build only the section we found
+			 * @type {Array}
+			 */
+			doc.pages = [];
+			doc.pages[0] = {};
+			doc.pages[0][section_to_build] = section_data;
+		}
 
 		/**
 		 * Create new config

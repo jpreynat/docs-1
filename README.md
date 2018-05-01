@@ -37,3 +37,11 @@ WARNING -  A 'dirty' build is being performed, this will likely lead to inaccura
 ```
 
 The page tree for `Server` should at this point take a split second and you can continue writing your pages
+
+### Build All Docs
+
+* This is not a production build command - this will build just the page and nav structure for development purposes still. Search does not get built
+
+```
+node build.js build all
+```
