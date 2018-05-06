@@ -51,6 +51,7 @@ pages:
       - DB - spells_new: database/spells_new.md
       - Attack Speed: server/spells/attack-speed.md
       - Buff Stacking: server/spells/buff-stacking.md
+      - Spell Conditions: server/spells/spell-conditions.md
       - Spell Effects: server/spells/spell-effects.md
       - Mechanics: server/spells/mechanics.md
   - Database:
