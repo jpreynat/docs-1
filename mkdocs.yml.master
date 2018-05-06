@@ -47,6 +47,8 @@ pages:
       - For Developers: server/logging-for-developers.md
       - Packet Logging: server/packet-logging.md
     - Reloading Server Data: server/Server-Data-Loading.md
+    - Factions:
+      - Factions Overview: server/factions/factions-overview.md
     - Spells:
       - DB - spells_new: database/spells_new.md
       - Attack Speed: server/spells/attack-speed.md
