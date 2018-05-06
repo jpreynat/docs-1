@@ -53,6 +53,7 @@ pages:
       - Buff Stacking: server/spells/buff-stacking.md
       - Spell Conditions: server/spells/spell-conditions.md
       - Spell Effects: server/spells/spell-effects.md
+      - Target Restrictions: server/spells/target-restrictions.md
       - Mechanics: server/spells/mechanics.md
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
