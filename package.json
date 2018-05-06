@@ -1,0 +1,37 @@
+{
+  "name": "eqemu-docs",
+  "version": "1.0.0",
+  "description": "Documentation for EverQuest Emulator",
+  "main": "build.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^3.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EQEmu/docs.git"
+  },
+  "keywords": [
+    "docs",
+    "eqemu",
+    "server",
+    "github",
+    "eqemulator",
+    "everquest",
+    "mmo"
+  ],
+  "author": "Akkadius",
+  "license": "LGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/EQEmu/docs/issues"
+  },
+  "homepage": "https://github.com/EQEmu/docs#readme"
+}
