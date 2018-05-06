@@ -41,6 +41,7 @@ pages:
     - Configuration: 
       - eqemu_config: server/eqemu_config.md
       - PvP: server/PvP.md 
+      - Server Rules: server/server-rules.md
     - Logging System:
       - How to Use: server/logging-system.md
       - Categories: server/logging-categories.md
