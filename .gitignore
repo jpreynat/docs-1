@@ -1,5 +1,7 @@
 .DS_Store
 
+mkdocs.yml
+
 # Logs
 logs
 *.log
