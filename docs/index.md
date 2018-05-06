@@ -68,7 +68,7 @@ forum, although pull requests will be much quicker and easier on all parties.
 | ProjectEQ Quests | [https://github.com/ProjectEQ/projecteqquests](https://github.com/ProjectEQ/projecteqquests) |
 | Plugins | [https://github.com/ProjectEQ/projecteqquests](https://github.com/ProjectEQ/projecteqquests) |
 | Maps | [https://github.com/Akkadius/EQEmuMaps](https://github.com/Akkadius/EQEmuMaps) |
-| Installer | | [https://github.com/Akkadius/EQEmuInstall](https://github.com/Akkadius/EQEmuInstall) |
+| Installer | [https://github.com/Akkadius/EQEmuInstall](https://github.com/Akkadius/EQEmuInstall) |
 | Zone Utilities | [https://github.com/EQEmu/zone-utilities](https://github.com/EQEmu/zone-utilities) |
 
 ## Other License Info
