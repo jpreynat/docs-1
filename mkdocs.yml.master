@@ -47,6 +47,9 @@ pages:
       - For Developers: server/logging-for-developers.md
       - Packet Logging: server/packet-logging.md
     - Reloading Server Data: server/Server-Data-Loading.md
+    - Spells:
+      - Buff Stacking: server/spells/buff-stacking.md
+      - Spell Effects: server/spells/spell-effects.md
   - Database:
     - ProjectEQ Database: database/ProjectEQ-Database.md
     - Adventures (LDONs):
